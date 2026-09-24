@@ -1,0 +1,65 @@
+---
+import { t, langPath, LANGS, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  class?: string;
+}
+
+const { lang, class: className } = Astro.props;
+const s = t(lang);
+---
+
+<div class:list={['toggle', className]} role="group" aria-label={s.toggle.label}>
+  {
+    LANGS.map((l) => (
+      <a
+        href={langPath(l)}
+        class="toggle__opt"
+        data-lang-choice={l}
+        aria-current={lang === l ? 'page' : undefined}
+        hreflang={l}
+        lang={l}
+      >
+        {s.toggle[l]}
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .toggle {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: var(--surface);
+    border-radius: var(--radius-pill);
+    padding: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  .toggle__opt {
+    padding: 8px 12px;
+    border-radius: var(--radius-pill);
+    background: transparent;
+    color: var(--text-subtle);
+    transition: background-color 120ms ease, color 120ms ease;
+  }
+
+  .toggle__opt:hover {
+    color: var(--text);
+  }
+
+  .toggle__opt[aria-current='page'] {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  .toggle__opt[aria-current='page']:hover {
+    background: var(--accent-hover);
+    color: var(--bg);
+  }
+</style>

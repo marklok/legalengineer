@@ -1,0 +1,176 @@
+---
+import { t, langPath, type Lang } from '../i18n';
+import site from '../data/site.json';
+import LangToggle from './LangToggle.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const s = t(lang);
+---
+
+<header class="header section">
+  <a href={langPath(lang)} class="logo" aria-label={site.name}>le<br />dk</a>
+
+  <span class="clock" aria-label={s.clock.label}>
+    <span data-clock>--:-- --</span> {s.clock.city}
+  </span>
+
+  <LangToggle lang={lang} class="toggle--mobile" />
+
+  <nav class="nav" aria-label="Main">
+    <a href="#about">{s.nav.about}</a>
+    <a href="#charter">{s.nav.charter}</a>
+
+    <LangToggle lang={lang} class="toggle--desktop" />
+
+    <a href={site.links.login}>{s.nav.login}</a>
+  </nav>
+</header>
+
+<style>
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+
+  .logo {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    text-align: center;
+    flex: none;
+  }
+
+  .logo:hover {
+    background: var(--accent-hover);
+    color: var(--bg);
+  }
+
+  .clock {
+    font-size: 15px;
+    color: var(--text-subtle);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .nav {
+    margin-left: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px clamp(16px, 2.4vw, 40px);
+    font-size: var(--fs-nav);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  /* Two toggle instances: in the nav on desktop, on the logo row on narrow screens. */
+  .header :global(.toggle--mobile) {
+    display: none;
+  }
+
+
+  @media (max-width: 900px) {
+    .header {
+      flex-wrap: wrap;
+      gap: 20px 24px;
+    }
+
+    .nav {
+      flex-basis: 100%;
+      justify-content: flex-start;
+    }
+
+    .header :global(.toggle--mobile) {
+      display: flex;
+      margin-left: auto;
+    }
+
+    .header :global(.toggle--desktop) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .logo {
+      width: 64px;
+      height: 64px;
+      font-size: 17px;
+    }
+
+    .header {
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+
+    .clock {
+      display: none;
+    }
+
+    .nav {
+      gap: 12px 20px;
+      font-size: 17px;
+    }
+  }
+</style>
+
+<script>
+  // Live Copenhagen clock: "HH:MM SS", updated every second.
+  const clockEl = document.querySelector<HTMLElement>('[data-clock]');
+  if (clockEl) {
+    const fmt = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Europe/Copenhagen',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+    });
+    const tick = () => {
+      const parts = fmt.formatToParts(new Date());
+      const get = (type: string) => parts.find((p) => p.type === type)?.value ?? '--';
+      clockEl.textContent = `${get('hour')}:${get('minute')} ${get('second')}`;
+    };
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  // Language persistence. Each language lives on its own route ("/" and "/da/").
+  // Remember the visitor's explicit choice and honour it when they land on the root.
+  const KEY = 'le-lang';
+  document.querySelectorAll<HTMLAnchorElement>('[data-lang-choice]').forEach((a) => {
+    a.addEventListener('click', () => {
+      try {
+        localStorage.setItem(KEY, a.dataset.langChoice ?? 'en');
+      } catch {
+        /* storage unavailable: ignore */
+      }
+    });
+  });
+  try {
+    const stored = localStorage.getItem(KEY);
+    const current = document.documentElement.lang;
+    if (stored === 'da' && current !== 'da' && location.pathname === '/') {
+      location.replace('/da/' + location.hash);
+    }
+  } catch {
+    /* storage unavailable: ignore */
+  }
+</script>

@@ -1,0 +1,48 @@
+{
+  "en": {
+    "htmlLang": "en",
+    "title": "Legal Engineering — For lawyers who build software.",
+    "description": "A Danish community for legal engineers. Practising lawyers, in-house counsels and founders who build software.",
+    "nav": { "about": "About", "charter": "Charter", "login": "Log in", "apply": "Apply" },
+    "toggle": { "en": "ENG", "da": "DK", "label": "Language" },
+    "clock": { "city": "CPH", "label": "Current time in Copenhagen" },
+    "hero": { "line1": "For lawyers who build software.", "line2": "A Danish community for legal engineers." },
+    "scrollDown": "Scroll to member stories",
+    "stories": { "heading": "Member stories", "placeholder": "Member video · 9:16", "sound": "Sound", "videoOf": "Video: " },
+    "who": {
+      "title": "Who we are",
+      "p1": "We are practising lawyers, in-house counsels and founders who build software.",
+      "p2": "Our members have moved beyond the initial stage of AI adoption, and want to help each other raise the standard of legal engineering.",
+      "p3": "Membership is by application and by demonstrated work. If you're a legal professional who builds, we invite you to",
+      "p3link": "apply",
+      "photo": "Community photo"
+    },
+    "buttons": { "apply": "Apply", "readCharter": "Read the charter", "readFull": "Read the full charter" },
+    "employers": { "label": "Where members work" },
+    "charter": { "title": "Charter." },
+    "footer": { "linkedin": "LinkedIn", "email": "Email", "made": "Made in Copenhagen, Denmark." }
+  },
+  "da": {
+    "htmlLang": "da",
+    "title": "Legal Engineering — For jurister, som bygger software.",
+    "description": "Et dansk fællesskab for legal engineers. Advokater, virksomhedsjurister og founders, som bygger software.",
+    "nav": { "about": "Om", "charter": "Charter", "login": "Log ind", "apply": "Ansøg" },
+    "toggle": { "en": "ENG", "da": "DK", "label": "Sprog" },
+    "clock": { "city": "KBH", "label": "Klokken i København lige nu" },
+    "hero": { "line1": "For jurister, som bygger software.", "line2": "Et dansk fællesskab for legal engineers." },
+    "scrollDown": "Scroll til medlemshistorier",
+    "stories": { "heading": "Medlemshistorier", "placeholder": "Medlemsvideo · 9:16", "sound": "Lyd", "videoOf": "Video: " },
+    "who": {
+      "title": "Om os",
+      "p1": "Vi er advokater, virksomhedsjurister og founders, som bygger software.",
+      "p2": "Vores medlemmer er videre fra den første fase af AI-adoption og vil hjælpe hinanden med at hæve standarden for legal engineering i Danmark.",
+      "p3": "Der kan ansøges om medlemskab ved ansøgning og på baggrund af dokumenteret arbejde. Arbejder du i den juridiske branche og bygger selv, er du velkommen til at",
+      "p3link": "ansøge",
+      "photo": "Fællesskabsfoto"
+    },
+    "buttons": { "apply": "Ansøg", "readCharter": "Læs chartret", "readFull": "Læs hele chartret" },
+    "employers": { "label": "Hvor vores medlemmer arbejder" },
+    "charter": { "title": "Charter." },
+    "footer": { "linkedin": "LinkedIn", "email": "Email", "made": "Lavet i København, Danmark." }
+  }
+}

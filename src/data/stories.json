@@ -1,0 +1,113 @@
+[
+  {
+    "name": "Kristian Anker",
+    "role": {
+      "en": "Founder, The Ramp",
+      "da": "Stifter, The Ramp"
+    },
+    "org": "The Ramp",
+    "built": {
+      "en": "Turning startup legal work into structured, repeatable processes.",
+      "da": "Gør juridisk arbejde i startups til strukturerede processer, der kan gentages."
+    },
+    "video": null,
+    "poster": null,
+    "url": null
+  },
+  {
+    "name": "Andjalis Behbahani",
+    "role": {
+      "en": "Product owner, Karnov",
+      "da": "Product owner, Karnov"
+    },
+    "org": "Karnov",
+    "built": {
+      "en": "Shipping legal research tooling to thousands of Danish practitioners.",
+      "da": "Leverer juridiske researchværktøjer til tusindvis af danske praktikere."
+    },
+    "video": null,
+    "poster": null,
+    "url": null
+  },
+  {
+    "name": "Philip Haakon Dalmose",
+    "role": {
+      "en": "Founder, Juridisk Teknologisk Forening",
+      "da": "Stifter, Juridisk Teknologisk Forening"
+    },
+    "org": "JTF",
+    "built": {
+      "en": "Organising the Danish association for legal technology.",
+      "da": "Driver den danske forening for juridisk teknologi."
+    },
+    "video": null,
+    "poster": null,
+    "url": null
+  },
+  {
+    "placeholder": true,
+    "name": {
+      "en": "Member name",
+      "da": "Medlemsnavn"
+    },
+    "role": {
+      "en": "Role, Organisation",
+      "da": "Rolle, Organisation"
+    },
+    "org": {
+      "en": "Organisation",
+      "da": "Organisation"
+    },
+    "built": {
+      "en": "Placeholder: what this member built and why.",
+      "da": "Pladsholder: hvad medlemmet har bygget, og hvorfor."
+    },
+    "video": null,
+    "poster": null,
+    "url": null
+  },
+  {
+    "placeholder": true,
+    "name": {
+      "en": "Member name",
+      "da": "Medlemsnavn"
+    },
+    "role": {
+      "en": "Role, Organisation",
+      "da": "Rolle, Organisation"
+    },
+    "org": {
+      "en": "Organisation",
+      "da": "Organisation"
+    },
+    "built": {
+      "en": "Placeholder: what this member built and why.",
+      "da": "Pladsholder: hvad medlemmet har bygget, og hvorfor."
+    },
+    "video": null,
+    "poster": null,
+    "url": null
+  },
+  {
+    "placeholder": true,
+    "name": {
+      "en": "Member name",
+      "da": "Medlemsnavn"
+    },
+    "role": {
+      "en": "Role, Organisation",
+      "da": "Rolle, Organisation"
+    },
+    "org": {
+      "en": "Organisation",
+      "da": "Organisation"
+    },
+    "built": {
+      "en": "Placeholder: what this member built and why.",
+      "da": "Pladsholder: hvad medlemmet har bygget, og hvorfor."
+    },
+    "video": null,
+    "poster": null,
+    "url": null
+  }
+]

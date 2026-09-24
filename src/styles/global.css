@@ -1,0 +1,182 @@
+/* ------------------------------------------------------------------
+   Design tokens (from the handoff README)
+   ------------------------------------------------------------------ */
+:root {
+  --bg: #141414;
+  --surface: #1f1f1f;
+  --surface-2: #2a2a2a;
+  --surface-2-hover: #353535;
+  --line: #2e2e2e;
+  --text: #ffffff;
+  --text-muted: #b3b3b3;
+  --text-subtle: #9a9a9a;
+  --text-hero-2: #8a8a8a;
+  --accent: #b8f0e6;
+  --accent-hover: #cdf5ee;
+
+  --gutter: 56px;
+  --radius-card: 28px;
+  --radius-tile: 20px;
+  --radius-pill: 999px;
+
+  --font: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --fs-hero: clamp(40px, 4.2vw, 64px);
+  --fs-h2: clamp(32px, 3.4vw, 52px);
+  --fs-nav: clamp(17px, 1.6vw, 22px);
+  --fs-body: 22px;
+
+  color-scheme: dark;
+}
+
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--text-muted);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ------------------------------------------------------------------
+   Shared primitives
+   ------------------------------------------------------------------ */
+.h2 {
+  font-size: var(--fs-h2);
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+.body-copy {
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+/* Pill buttons */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: var(--radius-pill);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.pill--secondary {
+  background: var(--surface-2);
+  color: var(--text);
+  padding: 16px 28px;
+}
+
+.pill--secondary:hover {
+  background: var(--surface-2-hover);
+  color: var(--text);
+}
+
+.pill--primary {
+  background: var(--accent);
+  color: var(--bg);
+  padding: 16px 16px 16px 26px;
+}
+
+.pill--primary:hover {
+  background: var(--accent-hover);
+  color: var(--bg);
+}
+
+.pill__arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  flex: none;
+}
+
+/* Section wrapper with the page gutter */
+.section {
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* ------------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------------ */
+@media (max-width: 640px) {
+  :root {
+    --gutter: 24px;
+  }
+}

@@ -1,0 +1,118 @@
+---
+import { t, pick, type Lang } from '../i18n';
+import charter from '../data/charter.json';
+import site from '../data/site.json';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const s = t(lang);
+const intro = charter.intro[lang];
+const foundation = charter.foundation[lang];
+---
+
+<section id="charter" class="charter section">
+  <div class="charter__top">
+    <h2 class="h2">{s.charter.title}</h2>
+    <div class="charter__intro">
+      {intro.map((para) => <p class="body-copy">{para}</p>)}
+      <p class="body-copy charter__foundation">{foundation}</p>
+    </div>
+  </div>
+
+  <ol class="principles">
+    {
+      charter.principles.map((p, i) => (
+        <li class="principle">
+          <span class="principle__num">{String(i + 1).padStart(2, '0')}</span>
+          <span class="principle__title">{pick(p.title, lang)}</span>
+          <span class="principle__body">{pick(p.body, lang)}</span>
+        </li>
+      ))
+    }
+  </ol>
+
+  <a href={site.links.fullCharter} class="pill pill--secondary charter__more">{s.buttons.readFull}</a>
+</section>
+
+<style>
+  .charter {
+    padding-top: 120px;
+    padding-bottom: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  .charter__top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 64px;
+    align-items: start;
+  }
+
+  .charter__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 820px;
+  }
+
+  .charter__foundation {
+    color: var(--text);
+  }
+
+  .principles {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 48px 40px;
+  }
+
+  .principle {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+
+  .principle__num {
+    font-size: 15px;
+    color: var(--text-subtle);
+  }
+
+  .principle__title {
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  .principle__body {
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    text-wrap: pretty;
+  }
+
+  .charter__more {
+    align-self: flex-start;
+  }
+
+  @media (max-width: 900px) {
+    .charter {
+      padding-top: 80px;
+      padding-bottom: 100px;
+    }
+
+    .charter__top {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+</style>

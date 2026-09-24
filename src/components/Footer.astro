@@ -1,0 +1,60 @@
+---
+import { t, type Lang } from '../i18n';
+import site from '../data/site.json';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const s = t(lang);
+---
+
+<footer class="footer section">
+  <nav class="footer__links" aria-label="Footer">
+    <a href={site.links.linkedin} rel="me">{s.footer.linkedin}</a>
+    <a href={site.links.email}>{s.footer.email}</a>
+    <a href="#about">{s.nav.about}</a>
+    <a href="#charter">{s.nav.charter}</a>
+    <a href={site.links.apply}>{s.nav.apply}</a>
+  </nav>
+  <div class="footer__meta">
+    <span>{s.footer.made}</span>
+    <span>{site.coordinates}</span>
+    <span>© {site.year} {site.name} · {site.domain}</span>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding-top: 48px;
+    padding-bottom: 56px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .footer__meta {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 14px;
+    color: var(--text-subtle);
+  }
+
+  @media (max-width: 640px) {
+    .footer__links {
+      gap: 20px 28px;
+    }
+  }
+</style>

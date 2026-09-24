@@ -1,0 +1,41 @@
+---
+import '../styles/global.css';
+import { t, langPath, LANGS, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const s = t(lang);
+const site = Astro.site ?? new URL('https://legalengineer.dk');
+const canonical = new URL(langPath(lang), site);
+---
+
+<!doctype html>
+<html lang={s.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{s.title}</title>
+    <meta name="description" content={s.description} />
+    <meta name="theme-color" content="#141414" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonical.href} />
+    {LANGS.map((l) => <link rel="alternate" hreflang={l} href={new URL(langPath(l), site).href} />)}
+    <link rel="alternate" hreflang="x-default" href={new URL(langPath('en'), site).href} />
+    <meta property="og:title" content={s.title} />
+    <meta property="og:description" content={s.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical.href} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

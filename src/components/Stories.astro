@@ -1,0 +1,357 @@
+---
+import { t, pick, type Lang } from '../i18n';
+import stories from '../data/stories.json';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const s = t(lang);
+---
+
+<section id="stories" class="stories" aria-label={s.stories.heading}>
+  <h2 class="visually-hidden">{s.stories.heading}</h2>
+  <div class="stories__track">
+    {
+      stories.map((story, i) => {
+        const name = pick(story.name, lang);
+        const role = pick(story.role, lang);
+        const org = pick(story.org, lang);
+        const built = pick(story.built, lang);
+        const num = String(i + 1).padStart(2, '0');
+        const hasMedia = Boolean(story.video || story.poster);
+        return (
+          <article class:list={['story', { 'story--media': hasMedia }]}>
+            {story.video ? (
+              <video
+                class="story__media"
+                src={story.video}
+                poster={story.poster ?? undefined}
+                muted
+                loop
+                playsinline
+                preload="none"
+                aria-label={s.stories.videoOf + name}
+                data-story-video
+              />
+            ) : story.poster ? (
+              <img class="story__media" src={story.poster} alt="" loading="lazy" />
+            ) : (
+              <span class="story__placeholder" aria-hidden="true">
+                {s.stories.placeholder}
+              </span>
+            )}
+
+            <span class="story__num">{num}</span>
+            <span class="story__org">{org}</span>
+
+            <div class="story__body">
+              <span class="story__name">
+                {story.url ? (
+                  <a class="story__link" href={story.url}>
+                    {name}
+                  </a>
+                ) : (
+                  name
+                )}
+              </span>
+              <span class="story__role">{role}</span>
+              <span class="story__built">{built}</span>
+            </div>
+
+            {story.video && (
+              <button class="story__sound" type="button" aria-pressed="false" aria-label={s.stories.sound} data-sound-toggle>
+                <svg class="icon-muted" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor" />
+                  <path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" />
+                </svg>
+                <svg class="icon-on" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor" />
+                  <path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" />
+                </svg>
+              </button>
+            )}
+          </article>
+        );
+      })
+    }
+  </div>
+</section>
+
+<style>
+  .stories__track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding: 0 var(--gutter) 40px;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: var(--gutter);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .stories__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Vertical 9:16 card, sized for portrait video */
+  .story {
+    flex: none;
+    width: clamp(280px, 25vw, 400px);
+    aspect-ratio: 9 / 16;
+    border-radius: var(--radius-card);
+    position: relative;
+    overflow: hidden;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px;
+    isolation: isolate;
+  }
+
+  /* Placeholder palette, cycling every six cards */
+  .story:nth-child(6n + 1) { background: #e8d9b8; color: #141414; }
+  .story:nth-child(6n + 2) { background: #6f86b3; color: #ffffff; }
+  .story:nth-child(6n + 3) { background: #e94d4a; color: #ffffff; }
+  .story:nth-child(6n + 4) { background: #f2f2f2; color: #141414; }
+  .story:nth-child(6n + 5) { background: #b8f0e6; color: #141414; }
+  .story:nth-child(6n + 6) { background: #3b3b3b; color: #ffffff; }
+
+  /* With video or poster: white text over a dark scrim for legibility */
+  .story.story--media {
+    background: var(--surface-2);
+    color: #ffffff;
+  }
+
+  .story--media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(to bottom, rgb(0 0 0 / 0.45), transparent 22%),
+      linear-gradient(to top, rgb(0 0 0 / 0.75), rgb(0 0 0 / 0.35) 35%, transparent 60%);
+  }
+
+  .story__media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .story__placeholder {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.45;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .story__num,
+  .story__org {
+    position: absolute;
+    top: 26px;
+    z-index: 2;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.7;
+  }
+
+  .story--media .story__num,
+  .story--media .story__org {
+    opacity: 0.85;
+  }
+
+  .story__num {
+    left: 28px;
+  }
+
+  .story__org {
+    right: 28px;
+    max-width: 60%;
+    text-align: right;
+  }
+
+  .story__body {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-right: 44px;
+  }
+
+  .story__name {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  .story__link:hover {
+    color: inherit;
+  }
+
+  /* Make the whole card clickable when the story has a URL */
+  .story__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .story__role {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    opacity: 0.75;
+  }
+
+  .story__built {
+    font-size: 15px;
+    line-height: 1.45;
+    opacity: 0.9;
+    text-wrap: pretty;
+  }
+
+  .story__sound {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgb(20 20 20 / 0.55);
+    color: #ffffff;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background-color 120ms ease, color 120ms ease;
+  }
+
+  .story__sound:hover {
+    background: rgb(20 20 20 / 0.75);
+  }
+
+  .story__sound[aria-pressed='true'] {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  .story__sound svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .story__sound .icon-on,
+  .story__sound[aria-pressed='true'] .icon-muted {
+    display: none;
+  }
+
+  .story__sound[aria-pressed='true'] .icon-on {
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    .stories__track {
+      gap: 12px;
+    }
+
+    .story {
+      width: min(78vw, 360px);
+      padding: 22px;
+    }
+
+    .story__num,
+    .story__org {
+      top: 20px;
+    }
+
+    .story__num {
+      left: 22px;
+    }
+
+    .story__org {
+      right: 22px;
+    }
+
+    .story__name {
+      font-size: 24px;
+    }
+
+    .story__role {
+      font-size: 15px;
+    }
+
+    .story__built {
+      font-size: 14px;
+    }
+  }
+</style>
+
+<script>
+  // Autoplay muted videos only while they are mostly on screen, and pause them otherwise.
+  // Visitors who prefer reduced motion get a still poster until they press the sound button.
+  const videos = Array.from(document.querySelectorAll<HTMLVideoElement>('[data-story-video]'));
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-sound-toggle]'));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const play = (v: HTMLVideoElement) => {
+    v.play().catch(() => {
+      /* autoplay blocked: poster stays visible */
+    });
+  };
+
+  if (videos.length && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const v = entry.target as HTMLVideoElement;
+          const visible = entry.isIntersecting && entry.intersectionRatio >= 0.6;
+          if (visible && (!reduceMotion || !v.muted)) play(v);
+          else if (!visible) v.pause();
+        }
+      },
+      { threshold: [0, 0.6] },
+    );
+    videos.forEach((v) => observer.observe(v));
+  }
+
+  // Sound toggle: only one card plays with sound at a time.
+  const videoFor = (b: HTMLElement) => b.closest('.story')?.querySelector('video') ?? null;
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const video = videoFor(button);
+      if (!video) return;
+      const turnOn = video.muted;
+
+      buttons.forEach((other) => {
+        const v = videoFor(other);
+        if (other !== button && v) {
+          v.muted = true;
+          other.setAttribute('aria-pressed', 'false');
+          if (reduceMotion) v.pause();
+        }
+      });
+
+      video.muted = !turnOn;
+      button.setAttribute('aria-pressed', String(turnOn));
+      if (turnOn) play(video);
+      else if (reduceMotion) video.pause();
+    });
+  });
+</script>

@@ -1,0 +1,73 @@
+---
+import { t, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const s = t(lang);
+---
+
+<section class="hero section">
+  <div class="hero__text">
+    <h1 class="hero__line">{s.hero.line1}</h1>
+    <p class="hero__line hero__line--2">{s.hero.line2}</p>
+  </div>
+  <a href="#stories" class="hero__scroll" aria-label={s.scrollDown}>
+    <span aria-hidden="true">↓</span>
+  </a>
+</section>
+
+<style>
+  .hero {
+    padding-top: 200px;
+    padding-bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+  }
+
+  .hero__text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .hero__line {
+    font-size: var(--fs-hero);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+  }
+
+  .hero__line--2 {
+    color: var(--text-hero-2);
+    text-wrap: balance;
+  }
+
+  .hero__scroll {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--surface-2);
+    color: var(--text);
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    transition: background-color 120ms ease;
+  }
+
+  .hero__scroll:hover {
+    background: var(--surface-2-hover);
+    color: var(--text);
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      padding-top: 120px;
+      padding-bottom: 80px;
+      gap: 80px;
+    }
+  }
+</style>

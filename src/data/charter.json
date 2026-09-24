@@ -1,0 +1,59 @@
+{
+  "intro": {
+    "en": [
+      "The work of lawyers has always been in a state of constant change, whether in response to developments in legislation, society or technology.",
+      "AI has given lawyers new opportunities to both perform legal work, and build the tools to do it.",
+      "People who work professionally with law know the challenges, the workflows and the important nuances. When we can translate that knowledge into software, the distance between identifying a problem and testing a solution becomes shorter.",
+      "It requires a new mindset. It also requires training, critical judgement and somebody to learn with.",
+      "Legalengineer.dk is for the lawyers who want to better understand the new capabilities that come with AI and want to share their experience with other members along the way."
+    ],
+    "da": [
+      "Juristers arbejde har altid været i konstant forandring, hvad enten det skyldes udviklingen i lovgivning, samfund eller teknologi.",
+      "AI har givet jurister nye muligheder for både at udføre juridisk arbejde og bygge værktøjerne til det.",
+      "Folk, der arbejder professionelt med jura, kender udfordringerne, arbejdsgangene og de vigtige nuancer. Når vi kan omsætte den viden til software, bliver afstanden mellem at identificere et problem og teste en løsning kortere.",
+      "Det kræver en ny tankegang. Det kræver også træning, kritisk dømmekraft og nogen at lære sammen med.",
+      "Legalengineer.dk er for de jurister, der vil forstå de nye muligheder, AI giver, og som vil dele deres erfaringer med andre medlemmer undervejs."
+    ]
+  },
+  "foundation": {
+    "en": "The community is built on this foundation:",
+    "da": "Fællesskabet bygger på dette fundament:"
+  },
+  "principles": [
+    {
+      "title": { "en": "We build", "da": "Vi bygger" },
+      "body": {
+        "en": "We start with our daily challenges and show how we can use software to solve them. Here, an unfinished prototype is a good thing.",
+        "da": "Vi tager udgangspunkt i vores daglige udfordringer og viser, hvordan vi kan bruge software til at løse dem. Her er en ufærdig prototype en god ting."
+      }
+    },
+    {
+      "title": { "en": "We share", "da": "Vi deler" },
+      "body": {
+        "en": "Sharing experiences, methods and code is our default whenever possible.",
+        "da": "At dele erfaringer, metoder og kode er vores udgangspunkt, når det er muligt."
+      }
+    },
+    {
+      "title": { "en": "Honest feedback", "da": "Ærlig feedback" },
+      "body": {
+        "en": "We challenge each other’s solutions, but respect the person behind.",
+        "da": "Vi udfordrer hinandens løsninger, men respekterer personen bag."
+      }
+    },
+    {
+      "title": { "en": "Confidentiality", "da": "Fortrolighed" },
+      "body": {
+        "en": "Conversations and presentations remain in the group, and any publication will happen in agreement with the member.",
+        "da": "Samtaler og oplæg bliver i gruppen, og enhver offentliggørelse sker efter aftale med medlemmet."
+      }
+    },
+    {
+      "title": { "en": "Community", "da": "Fællesskab" },
+      "body": {
+        "en": "Everyone is welcome to contribute, whether it’s a prototype, questions during session, sharing experiences or supporting other members.",
+        "da": "Alle er velkomne til at bidrage, hvad enten det er med en prototype, spørgsmål under sessionen, erfaringsdeling eller støtte til andre medlemmer."
+      }
+    }
+  ]
+}
