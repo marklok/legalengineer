@@ -1,8 +1,8 @@
 {
   "en": {
     "htmlLang": "en",
-    "title": "Legal Engineering — For lawyers who build software.",
-    "description": "A Danish community for legal engineers. Practising lawyers, in-house counsels and founders who build software.",
+    "title": "Legal Engineering: For lawyers who build software.",
+    "description": "A Danish community for legal engineers.",
     "nav": { "about": "About", "charter": "Charter", "login": "Log in", "apply": "Apply" },
     "toggle": { "en": "ENG", "da": "DK", "label": "Language" },
     "clock": { "city": "CPH", "label": "Current time in Copenhagen" },
@@ -24,8 +24,8 @@
   },
   "da": {
     "htmlLang": "da",
-    "title": "Legal Engineering — For jurister, som bygger software.",
-    "description": "Et dansk fællesskab for legal engineers. Advokater, virksomhedsjurister og founders, som bygger software.",
+    "title": "Legal Engineering: For jurister, som bygger software.",
+    "description": "Et dansk fællesskab for legal engineers.",
     "nav": { "about": "Om", "charter": "Charter", "login": "Log ind", "apply": "Ansøg" },
     "toggle": { "en": "ENG", "da": "DK", "label": "Sprog" },
     "clock": { "city": "KBH", "label": "Klokken i København lige nu" },
