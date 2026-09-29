@@ -52,8 +52,8 @@
     },
     "org": "markus.legal",
     "built": {
-      "en": "A consultancy that helps automate legal processes.",
-      "da": "Et konsulenthus, der hjælper med at automatisere juridiske processer."
+      "en": "Runs markus.legal, which automates legal processes.",
+      "da": "Driver markus.legal som automatiserer juridiske processer."
     },
     "video": null,
     "poster": null,
