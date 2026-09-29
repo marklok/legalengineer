@@ -32,8 +32,8 @@ All copy and lists live in JSON so they can be changed without touching markup.
 | -------------------------- | --------------------------------------------------------------- |
 | `src/data/stories.json`    | Member story cards. Order = card order and colour.              |
 | `src/data/employers.json`  | "Where members work" tiles. Set `logo` to an image path to swap the name for a logo. |
-| `src/data/charter.json`    | Charter intro paragraphs, the foundation line, and the five principles. |
-| `src/data/site.json`       | Site name, year, coordinates, and the link targets for Apply, Log in, LinkedIn, Email and the full charter. |
+| `src/data/charter.json`    | Charter intro paragraphs, the foundation line, and the principles. Principles are a separate list per language, so the languages can differ. |
+| `src/data/site.json`       | Site name, year, coordinates, and the link targets for Log in, LinkedIn, Email and the full charter. |
 | `src/i18n/strings.json`    | Every other UI string, in `en` and `da`.                        |
 
 Any text field can be either a plain string (same in both languages) or an
@@ -63,8 +63,8 @@ Cards are 9:16 and built for vertical video. Each entry in `stories.json`:
 
 ### Links still to be decided
 
-`src/data/site.json` currently points Apply at the `#apply` anchor and Log in,
-LinkedIn, Email and the full charter at `#`. Replace these when the routes and
+`src/data/site.json` currently points Log in, LinkedIn, Email and the full
+charter at `#`. Replace these when the routes and
 forms exist.
 
 ## Assets still needed

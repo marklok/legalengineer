@@ -1,6 +1,5 @@
 ---
 import { t, type Lang } from '../i18n';
-import site from '../data/site.json';
 
 interface Props {
   lang: Lang;
@@ -15,15 +14,7 @@ const s = t(lang);
     <h2 class="h2">{s.who.title}</h2>
     <p class="body-copy">{s.who.p1}</p>
     <p class="body-copy">{s.who.p2}</p>
-    <p class="body-copy">
-      {s.who.p3}
-      <a id="apply" href={site.links.apply} class="about__inline-link">{s.who.p3link}</a>.
-    </p>
     <div class="about__actions">
-      <a href={site.links.apply} class="pill pill--primary">
-        {s.buttons.apply}
-        <span class="pill__arrow" aria-hidden="true">↙</span>
-      </a>
       <a href="#charter" class="pill pill--secondary">{s.buttons.readCharter}</a>
     </div>
   </div>
@@ -52,10 +43,6 @@ const s = t(lang);
     max-width: 720px;
   }
 
-  .about__inline-link {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
 
   .about__actions {
     display: flex;

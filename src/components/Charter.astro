@@ -1,5 +1,5 @@
 ---
-import { t, pick, type Lang } from '../i18n';
+import { t, type Lang } from '../i18n';
 import charter from '../data/charter.json';
 import site from '../data/site.json';
 
@@ -24,11 +24,11 @@ const foundation = charter.foundation[lang];
 
   <ol class="principles">
     {
-      charter.principles.map((p, i) => (
+      charter.principles[lang].map((p, i) => (
         <li class="principle">
           <span class="principle__num">{String(i + 1).padStart(2, '0')}</span>
-          <span class="principle__title">{pick(p.title, lang)}</span>
-          <span class="principle__body">{pick(p.body, lang)}</span>
+          <span class="principle__title">{p.title}</span>
+          <span class="principle__body">{p.body}</span>
         </li>
       ))
     }
