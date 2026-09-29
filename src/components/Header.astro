@@ -26,7 +26,6 @@ const s = t(lang);
 
     <LangToggle lang={lang} class="toggle--desktop" />
 
-    <a href={site.links.login}>{s.nav.login}</a>
   </nav>
 </header>
 
@@ -89,19 +88,22 @@ const s = t(lang);
 
 
   @media (max-width: 900px) {
+    /* Tablet and below: logo and clock on the left; links and toggle on the right, in one row. */
     .header {
-      flex-wrap: wrap;
-      gap: 20px 24px;
+      flex-wrap: nowrap;
+      gap: 24px;
     }
 
     .nav {
-      flex-basis: 100%;
-      justify-content: flex-start;
+      order: 2;
+      flex: 0 0 auto;
+      margin-left: auto;
     }
 
     .header :global(.toggle--mobile) {
       display: flex;
-      margin-left: auto;
+      order: 3;
+      margin-left: 0;
     }
 
     .header :global(.toggle--desktop) {
@@ -111,9 +113,9 @@ const s = t(lang);
 
   @media (max-width: 640px) {
     .logo {
-      width: 64px;
-      height: 64px;
-      font-size: 17px;
+      width: 56px;
+      height: 56px;
+      font-size: 15px;
     }
 
     .header {
@@ -125,9 +127,40 @@ const s = t(lang);
       display: none;
     }
 
+    /* One row: logo, links, toggle, spread evenly. Wraps only on very narrow screens. */
+    .header {
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
     .nav {
-      gap: 12px 20px;
-      font-size: 17px;
+      order: 2;
+      flex: 0 0 auto;
+      margin-left: 0;
+      flex-wrap: nowrap;
+      gap: 14px;
+      font-size: 16px;
+    }
+
+    .header :global(.toggle--mobile) {
+      order: 3;
+      margin-left: 0;
+      flex: none;
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 340px) {
+    .logo {
+      width: 48px;
+      height: 48px;
+      font-size: 13px;
+    }
+
+    .nav {
+      gap: 10px;
+      font-size: 15px;
     }
   }
 </style>

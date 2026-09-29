@@ -5,8 +5,7 @@
     "description": "A Danish community for legal engineers.",
     "nav": {
       "about": "About",
-      "charter": "Charter",
-      "login": "Log in"
+      "charter": "Charter"
     },
     "toggle": {
       "en": "ENG",
@@ -56,8 +55,7 @@
     "description": "Et dansk fællesskab for legal engineers.",
     "nav": {
       "about": "Om",
-      "charter": "Charter",
-      "login": "Log ind"
+      "charter": "Charter"
     },
     "toggle": {
       "en": "ENG",
