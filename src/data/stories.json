@@ -2,10 +2,10 @@
   {
     "name": "Kristian Anker",
     "role": {
-      "en": "Founder, The Ramp",
-      "da": "Stifter, The Ramp"
+      "en": "CEO, Much",
+      "da": "CEO, Much"
     },
-    "org": "The Ramp",
+    "org": "Much",
     "built": {
       "en": "Turning startup legal work into structured, repeatable processes.",
       "da": "Gør juridisk arbejde i startups til strukturerede processer, der kan gentages."
@@ -45,22 +45,15 @@
     "url": null
   },
   {
-    "placeholder": true,
-    "name": {
-      "en": "Member name",
-      "da": "Medlemsnavn"
-    },
+    "name": "Markus Klokhøj",
     "role": {
-      "en": "Role, Organisation",
-      "da": "Rolle, Organisation"
+      "en": "Founder, Ext. lecturer AI and legal disruption",
+      "da": "Stifter, ekstern lektor i AI og legal disruption"
     },
-    "org": {
-      "en": "Organisation",
-      "da": "Organisation"
-    },
+    "org": "markus.legal",
     "built": {
-      "en": "Placeholder: what this member built and why.",
-      "da": "Pladsholder: hvad medlemmet har bygget, og hvorfor."
+      "en": "A consultancy that helps automate legal processes.",
+      "da": "Et konsulenthus, der hjælper med at automatisere juridiske processer."
     },
     "video": null,
     "poster": null,

@@ -17,8 +17,8 @@ const s = t(lang);
       stories.map((story, i) => {
         const name = pick(story.name, lang);
         const role = pick(story.role, lang);
-        const org = pick(story.org, lang);
-        const built = pick(story.built, lang);
+        const org = story.org ? pick(story.org, lang) : '';
+        const built = story.built ? pick(story.built, lang) : '';
         const num = String(i + 1).padStart(2, '0');
         const hasMedia = Boolean(story.video || story.poster);
         return (
@@ -44,7 +44,7 @@ const s = t(lang);
             )}
 
             <span class="story__num">{num}</span>
-            <span class="story__org">{org}</span>
+            {org && <span class="story__org">{org}</span>}
 
             <div class="story__body">
               <span class="story__name">
@@ -57,7 +57,7 @@ const s = t(lang);
                 )}
               </span>
               <span class="story__role">{role}</span>
-              <span class="story__built">{built}</span>
+              {built && <span class="story__built">{built}</span>}
             </div>
 
             {story.video && (

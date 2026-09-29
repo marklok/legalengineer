@@ -46,8 +46,8 @@ Cards are 9:16 and built for vertical video. Each entry in `stories.json`:
 ```json
 {
   "name": "Kristian Anker",
-  "role": { "en": "Founder, The Ramp", "da": "Stifter, The Ramp" },
-  "org": "The Ramp",
+  "role": { "en": "CEO, Much", "da": "CEO, Much" },
+  "org": "Much",
   "built": { "en": "...", "da": "..." },
   "video": "/stories/kristian.mp4",
   "poster": "/stories/kristian.jpg",
@@ -59,6 +59,7 @@ Cards are 9:16 and built for vertical video. Each entry in `stories.json`:
 - `poster`: still frame shown before the video loads, and the only thing shown to visitors who prefer reduced motion until they press the sound button. Can also be used on its own without a video.
 - With a video or poster, the card switches to white text over a dark gradient. Without either, it shows the coloured placeholder.
 - `url`: if set, the whole card becomes a link.
+- `org` and `built` are optional. Leave them out and that line is simply not shown.
 - Recommended encoding: H.264 MP4, 1080×1920 or 720×1280, no more than a few MB each, since several cards can load on one page.
 
 ### Links still to be decided
