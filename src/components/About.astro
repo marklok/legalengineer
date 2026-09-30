@@ -18,19 +18,12 @@ const s = t(lang);
       <a href="#charter" class="pill pill--secondary">{s.buttons.readCharter}</a>
     </div>
   </div>
-  <div class="about__photo" role="img" aria-label={s.who.photo}>
-    <span aria-hidden="true">{s.who.photo}</span>
-  </div>
 </section>
 
 <style>
   .about {
     padding-top: 160px;
     padding-bottom: 120px;
-    display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-    gap: 64px;
-    align-items: start;
   }
 
   .about__copy {
@@ -43,30 +36,17 @@ const s = t(lang);
     max-width: 720px;
   }
 
-
   .about__actions {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
   }
 
-  .about__photo {
-    aspect-ratio: 4 / 5;
-    border-radius: var(--radius-card);
-    background: var(--surface-2);
-    display: grid;
-    place-items: center;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-hero-2);
-  }
 
   @media (max-width: 900px) {
     .about {
-      grid-template-columns: 1fr;
       padding-top: 100px;
       padding-bottom: 80px;
-      gap: 48px;
     }
   }
 </style>

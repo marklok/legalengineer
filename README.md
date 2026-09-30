@@ -33,7 +33,7 @@ All copy and lists live in JSON so they can be changed without touching markup.
 | `src/data/stories.json`    | Member story cards. Order = card order and colour.              |
 | `src/data/employers.json`  | "Where members work" tiles. Set `logo` to an image path to swap the name for a logo. |
 | `src/data/charter.json`    | Charter intro paragraphs, the foundation line, and the principles. Principles are a separate list per language, so the languages can differ. |
-| `src/data/site.json`       | Site name, year, coordinates, and the link targets for LinkedIn, Email and the full charter. |
+| `src/data/site.json`       | Site name, year, coordinates, and the email link (currently `mailto:contact@markus.legal`). |
 | `src/i18n/strings.json`    | Every other UI string, in `en` and `da`.                        |
 
 Any text field can be either a plain string (same in both languages) or an
@@ -62,15 +62,10 @@ Cards are 9:16 and built for vertical video. Each entry in `stories.json`:
 - `org` and `built` are optional. Leave them out and that line is simply not shown.
 - Recommended encoding: H.264 MP4, 1080×1920 or 720×1280, no more than a few MB each, since several cards can load on one page.
 
-### Links still to be decided
-
-`src/data/site.json` currently points LinkedIn, Email and the full charter at
-`#`. Replace these when the routes and forms exist.
-
 ## Assets still needed
 
 - Vertical member videos and poster frames for the six story cards
-- A community photo (`src/components/About.astro`, the 4:5 placeholder)
+- A community photo. It was removed from the page for now; add it back to `src/components/About.astro` (the section was a 3fr/2fr grid with a 4:5 photo on the right)
 - Employer logos (drop into `public/` and set `logo` in `employers.json`)
 
 ## Structure

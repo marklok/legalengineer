@@ -30,12 +30,10 @@
     "who": {
       "title": "Who we are",
       "p1": "Legalengineer.dk is a community for professionals who want to understand the technology, build concrete solutions and develop the way legal work is produced and delivered.",
-      "p2": "Our members have different backgrounds, but share the wish to raise the bar for legal engineering in Denmark.",
-      "photo": "Community photo"
+      "p2": "Our members have different backgrounds, but share the wish to raise the bar for legal engineering in Denmark."
     },
     "buttons": {
-      "readCharter": "Read the charter",
-      "readFull": "Read the full charter"
+      "readCharter": "Read the charter"
     },
     "employers": {
       "label": "Where members work"
@@ -44,7 +42,6 @@
       "title": "Charter."
     },
     "footer": {
-      "linkedin": "LinkedIn",
       "email": "Email",
       "made": "Made in Copenhagen, Denmark."
     }
@@ -80,12 +77,10 @@
     "who": {
       "title": "Om os",
       "p1": "Legalengineer.dk er et fællesskab for fagfolk, som ønsker at forstå teknologien, bygge konkrete løsninger og udvikle den måde, juridisk arbejde produceres og leveres på.",
-      "p2": "Vores medlemmer har forskellige baggrunde, men deler ønsket om at hæve barren for legal engineering i Danmark.",
-      "photo": "Fællesskabsfoto"
+      "p2": "Vores medlemmer har forskellige baggrunde, men deler ønsket om at hæve barren for legal engineering i Danmark."
     },
     "buttons": {
-      "readCharter": "Læs chartret",
-      "readFull": "Læs hele chartret"
+      "readCharter": "Læs chartret"
     },
     "employers": {
       "label": "Hvor vores medlemmer arbejder"
@@ -94,7 +89,6 @@
       "title": "Charter."
     },
     "footer": {
-      "linkedin": "LinkedIn",
       "email": "Email",
       "made": "Lavet i København, Danmark."
     }
