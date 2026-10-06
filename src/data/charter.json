@@ -16,21 +16,21 @@
     ]
   },
   "foundation": {
-    "en": "Our principles",
-    "da": "Vores principper"
+    "en": "Our principles.",
+    "da": "Vores principper."
   },
   "principles": {
     "en": [
       {
-        "title": "We learn",
+        "title": "Learning",
         "body": "The community is built around learning sessions, where professional presentations form the basis for debate and shared learning. The community is not a platform for advertising."
       },
       {
-        "title": "We build",
+        "title": "Development",
         "body": "We start from concrete problems and build solutions that can be tested and used. An unfinished prototype is a good place to begin."
       },
       {
-        "title": "We give feedback",
+        "title": "Feedback",
         "body": "We challenge each other’s assumptions and raise our shared level of knowledge through debate on the use of technology within law."
       },
       {
@@ -40,15 +40,15 @@
     ],
     "da": [
       {
-        "title": "Vi lærer",
+        "title": "Læring",
         "body": "Fællesskabet er bygget op omkring learning sessions, hvor faglige oplæg danner grundlag for debat og fælles læring. Fællesskabet er ikke en platform for reklame."
       },
       {
-        "title": "Vi bygger",
+        "title": "Udvikling",
         "body": "Vi tager udgangspunkt i konkrete problemer og bygger løsninger, der kan testes og anvendes. En ufærdig prototype er et godt sted at begynde."
       },
       {
-        "title": "Vi giver feedback",
+        "title": "Feedback",
         "body": "Vi udfordrer hinandens antagelser og løfter vores fælles vidensniveau gennem debat om teknologiens anvendelse inden for jura."
       },
       {
